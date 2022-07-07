@@ -20,5 +20,6 @@ Route::get('/', function () {
 });
 
 Route::resource('/vagas', VagasController::class)->only([
-    'index'
+    'index',
+    'create'
 ]);

@@ -42,7 +42,7 @@
                             <a class="nav-link text-white" href="#">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('vagas.publicar') }}">Públicar vagas</a>
+                            <a class="nav-link text-white" href="{{ route('vagas.create') }}">Públicar vagas</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
