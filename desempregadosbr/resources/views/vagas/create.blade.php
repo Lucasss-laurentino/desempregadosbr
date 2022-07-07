@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputQtd" class="text-success"><strong>Quantidade de vagas</strong></label>
-                <input type="text" class="form-control border border-success text-success" name="quantidade" aria-describedby="emailHelp">
+                <input type="number" class="form-control border border-success text-success" name="quantidade" aria-describedby="emailHelp">
             </div>
             <div class="form-group">
                 <label for="exampleInputDescricao" class="text-success"><strong>Descrição da vaga</strong></label>

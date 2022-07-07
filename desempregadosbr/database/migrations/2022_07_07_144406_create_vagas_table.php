@@ -15,6 +15,15 @@ return new class extends Migration
     {
         Schema::create('vagas', function (Blueprint $table) {
             $table->id();
+            $table->string('email');
+            $table->string('titulo');
+            $table->string('cargo');
+            $table->string('estado');
+            $table->string('cidade');
+            $table->string('salario');
+            $table->integer('quantidade');
+            $table->string('descricao');
+
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@
                 </div>
             </form>
         </div>
-        <div class="container d-flex justify-content-center mt-3">
+        <div class="container d-flex justify-content-center mt-3 mb-5">
             <p class="text-success">Explore vagas de trabalhos com simplicidade e sem burocracia !</p>
         </div>
     </header>
@@ -24,15 +24,23 @@
     
     <!--- Lista de vagas --->
     <main>
-        <div class="container">
+        <div class="container" style="width: 40%;">
         @if($vagas != null)
         @foreach($vagas as $vaga)
         <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
+            <li class="list-group">
+            <div class="card border-success">
+                <div class="card-header bg-success d-flex justify-content-center">
+                    <p class="text-white mb-0"><strong>{{ $vaga->titulo }}</strong></p>
+                </div>
+                <div class="card-body">
+                    <p class="card-text text-success">{{ $vaga->descricao }}</p>
+                </div>
+                <div class="card-footer d-flex justify-content-center bg-white border-white">
+                    <a href="#" class="ver_vaga btn btn-sm btn-success">Ver vaga</a>
+                </div>
+                </div>
+            </li>
         </ul>
         @endforeach
         @endif
