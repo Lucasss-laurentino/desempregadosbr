@@ -19,4 +19,11 @@ class VagasController extends Controller
     public function create() {
         return view('vagas.create');
     }
+
+    public function store(Request $request) {
+        
+        Vaga::create($request->all());
+        
+        return to_route('vagas.index');
+    }
 }

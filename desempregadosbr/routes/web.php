@@ -21,5 +21,6 @@ Route::get('/', function () {
 
 Route::resource('/vagas', VagasController::class)->only([
     'index',
-    'create'
+    'create',
+    'store  '
 ]);
