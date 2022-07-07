@@ -23,4 +23,5 @@ Route::resource('/vagas', VagasController::class)->only([
     'index',
     'create',
     'store',
+    'show'
 ]);

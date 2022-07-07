@@ -26,4 +26,10 @@ class VagasController extends Controller
         
         return to_route('vagas.index');
     }
+
+    public function show($id) {
+        $vaga = Vaga::find($id);
+
+        return view('vagas.show')->with('vaga', $vaga);
+    }
 }
