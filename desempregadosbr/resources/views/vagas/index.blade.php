@@ -16,7 +16,7 @@
                 </div>
             </form>
         </div>
-        <div class="container d-flex justify-content-center mt-3 mb-5">
+        <div class="container d-flex justify-content-center mt-3 mb-4">
             <p class="text-success">Explore vagas de trabalhos com simplicidade e sem burocracia !</p>
         </div>
     </header>
@@ -28,7 +28,7 @@
         @if($vagas != null)
         @foreach($vagas as $vaga)
         <ul class="list-group">
-            <li class="list-group">
+            <li class="list-group my-4">
             <div class="card border-success">
                 <div class="card-header bg-success d-flex justify-content-center">
                     <p class="text-white mb-0"><strong>{{ $vaga->titulo }}</strong></p>
@@ -37,7 +37,7 @@
                     <p class="card-text text-success">{{ $vaga->descricao }}</p>
                 </div>
                 <div class="card-footer d-flex justify-content-center bg-white border-white">
-                    <a href="#" class="ver_vaga btn btn-sm btn-success">Ver vaga</a>
+                    <a href="{{ route('vagas.show', $vaga->id) }}" class="ver_vaga btn btn-sm btn-success">Ver vaga</a>
                 </div>
                 </div>
             </li>
