@@ -23,5 +23,10 @@ Route::resource('/vagas', VagasController::class)->only([
     'index',
     'create',
     'store',
+<<<<<<< HEAD
     'show'
 ]);
+=======
+    'show',
+]);
+>>>>>>> desenvolvimento

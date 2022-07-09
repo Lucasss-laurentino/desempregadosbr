@@ -10,7 +10,7 @@ class VagasController extends Controller
 {
     public function index() {
 
-        $vagas = Vaga::query()->orderBy('created_at')->get();
+        $vagas = Vaga::query()->orderBy('id', 'desc')->get();
 
         return view('vagas.index')->with('vagas', $vagas);
 

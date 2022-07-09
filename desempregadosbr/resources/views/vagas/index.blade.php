@@ -16,7 +16,7 @@
                 </div>
             </form>
         </div>
-        <div class="container d-flex justify-content-center mt-3 mb-5">
+        <div class="container d-flex justify-content-center mt-3 mb-4">
             <p class="text-success">Explore vagas de trabalhos com simplicidade e sem burocracia !</p>
         </div>
     </header>
@@ -27,7 +27,10 @@
         <div class="container" style="width: 40%;">
         @if($vagas != null)
         <ul class="list-group">
+<<<<<<< HEAD
             @foreach($vagas as $vaga)
+=======
+>>>>>>> desenvolvimento
             <li class="list-group my-4">
             <div class="card border-success">
                 <div class="card-header bg-success d-flex justify-content-center">
