@@ -27,10 +27,7 @@
         <div class="container" style="width: 40%;">
         @if($vagas != null)
         <ul class="list-group">
-<<<<<<< HEAD
             @foreach($vagas as $vaga)
-=======
->>>>>>> desenvolvimento
             <li class="list-group my-4">
             <div class="card border-success">
                 <div class="card-header bg-success d-flex justify-content-center">
