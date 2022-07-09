@@ -1,8 +1,11 @@
 @extends('layout.layout')
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> main
 @section('content')
 
 <main>
@@ -28,6 +31,9 @@
         </div>
     </div>
 </main>
+=======
+<<<<<<< HEAD
+>>>>>>> main
 =======
 >>>>>>> main
 
@@ -57,6 +63,10 @@
         </div>
     </main>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> desenvolvimento
+>>>>>>> main
 =======
 >>>>>>> desenvolvimento
 >>>>>>> main

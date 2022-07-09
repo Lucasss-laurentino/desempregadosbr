@@ -28,6 +28,10 @@
         @if($vagas != null)
         <ul class="list-group">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            @foreach($vagas as $vaga)
+>>>>>>> main
 =======
             @foreach($vagas as $vaga)
 >>>>>>> main
