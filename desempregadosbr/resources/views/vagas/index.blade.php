@@ -27,18 +27,11 @@
         <div class="container" style="width: 40%;">
         @if($vagas != null)
         <ul class="list-group">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
             @foreach($vagas as $vaga)
->>>>>>> main
-=======
-            @foreach($vagas as $vaga)
->>>>>>> main
             <li class="list-group my-4">
-            <div class="card border-success">
+                <div class="card border-success">
+                <p class="text-white mb-0"><strong>{{ $vaga->titulo }}</strong></p>
                 <div class="card-header bg-success d-flex justify-content-center">
-                    <p class="text-white mb-0"><strong>{{ $vaga->titulo }}</strong></p>
                 </div>
                 <div class="card-body">
                     <p class="card-text text-success">{{ $vaga->descricao }}</p>
