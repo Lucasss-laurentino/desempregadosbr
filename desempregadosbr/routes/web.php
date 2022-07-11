@@ -28,5 +28,7 @@ Route::resource('/vagas', VagasController::class)->only([
     'show',
 ]);
 
+Route::get('/user', [UserController::class, 'logout'])->name('user.logout');
+
 Route::get('/auth/{provider}', [UserController::class, 'redirectToProvider'])->name('social.login');
 Route::get('/auth/{provider}/callback', [UserController::class, 'handleToCallback'])->name('social.callback');

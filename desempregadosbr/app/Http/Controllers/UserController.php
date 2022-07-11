@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Laravel\Socialite\Facades\Socialite;
 
+use App\Models\User;
+
 class UserController extends Controller
 {
     public function redirectToProvider($provider) {
@@ -14,10 +16,39 @@ class UserController extends Controller
 
     }
 
-    public function handleToCallback($provider) {
+    public function handleToCallback(Request $request, $provider) {
 
         $userProvider = Socialite::driver($provider)->user();
 
-        dd($userProvider);
+        // Lógica para cadastro e login
+        if(User::where('provider_id', $userProvider->getId())->count() === 1) {
+            
+            $user = User::where('provider_id', $userProvider->getId())->first();
+
+            $request->session()->put('user', $user);
+            
+            return to_route('vagas.index');
+        
+        } else {
+
+            User::create([
+                'name' => $userProvider->getName(),
+                'provider' => $provider,
+                'provider_id' => $userProvider->getId(),
+                'email' => $userProvider->getEmail(),
+            ]);
+
+            $request->session()->put('user', $user);
+
+            return to_route('vagas.index');
+
+        }
+    }
+
+    public function logout(Request $request) {
+
+        $request->session()->flush('user');
+
+        return to_route('vagas.index');
     }
 }
