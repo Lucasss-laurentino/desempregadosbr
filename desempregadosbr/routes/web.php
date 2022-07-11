@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\VagasController;
 
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +27,6 @@ Route::resource('/vagas', VagasController::class)->only([
     'store',
     'show',
 ]);
+
+Route::get('/auth/{provider}', [UserController::class, 'redirectToProvider'])->name('social.login');
+Route::get('/auth/{provider}/callback', [UserController::class, 'handleToCallback'])->name('social.callback');
