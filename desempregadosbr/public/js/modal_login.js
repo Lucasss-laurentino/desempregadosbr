@@ -19,3 +19,14 @@ $(document).on('click', '#cadastrar', function(e) {
 
 
 });
+
+$(document).on('click', '#login_ver_vagas', function(e) {
+    
+    e.preventDefault();
+
+    let modal = $('#exampleModalCenter');
+    let minha_modal = new bootstrap.Modal(modal);
+    minha_modal.show();
+
+
+});

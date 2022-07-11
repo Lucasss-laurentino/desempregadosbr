@@ -17,9 +17,11 @@
                 <p class="text-success"><strong>Descrição da vaga:</strong> {{ $vaga->descricao }}</p>
             </div>
             <div class="card-footer border-success bg-white">
-                <form action="">
+                <form action="{{ route('user.upload') }}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <label for="formFileSm" class="form-label text-success"><strong>Selecione seu curriculo</strong></label>
-                    <input class="form-control form-control-sm" id="formFileSm" type="file"/>
+                    <input type="file" name="my-file" id="image" class="form-control" accept="application/pdf,application/vnd.ms-excel" />
+                    <button type="submit" class="btn btn-sm bg-success text-white my-3 w-100">Enviar</button>
                 </form>
             </div>
         </div>

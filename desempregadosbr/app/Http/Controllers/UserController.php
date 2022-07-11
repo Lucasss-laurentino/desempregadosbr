@@ -31,7 +31,7 @@ class UserController extends Controller
         
         } else {
 
-            User::create([
+            $user = User::create([
                 'name' => $userProvider->getName(),
                 'provider' => $provider,
                 'provider_id' => $userProvider->getId(),
@@ -48,6 +48,17 @@ class UserController extends Controller
     public function logout(Request $request) {
 
         $request->session()->flush('user');
+
+        return to_route('vagas.index');
+    }
+
+    public function upload(Request $request) {
+
+        $user = User::find($request->session()->get('user')['id']);
+
+        $pathToFile = $request->file('my-file')->store('curriculos');
+        
+        $user->pathToFile = $request->file('my-file');
 
         return to_route('vagas.index');
     }

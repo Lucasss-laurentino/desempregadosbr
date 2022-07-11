@@ -23,6 +23,7 @@ class User extends Authenticatable
         'provider_id',
         'email',
         'password',
+        'my-file',
     ];
 
     /**
