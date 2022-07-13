@@ -31,7 +31,7 @@ class UserController extends Controller
         
         } else {
 
-            User::create([
+            $user = User::create([
                 'name' => $userProvider->getName(),
                 'provider' => $provider,
                 'provider_id' => $userProvider->getId(),
