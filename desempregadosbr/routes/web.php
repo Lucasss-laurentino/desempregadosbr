@@ -33,6 +33,7 @@ Route::resource('/vagas', VagasController::class)->only([
 Route::resource('/adm', AdmController::class)->only([
     'edit',
     'update',
+    'destroy',
 ]);
 Route::get('/user', [UserController::class, 'logout'])->name('user.logout');
 Route::post('/user/{id}', [UserController::class, 'upload'])->name('user.upload');

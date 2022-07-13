@@ -32,7 +32,7 @@ class AdmController extends Controller
 
     }
     
-    public function excluir($id) {
+    public function destroy($id) {
     
         Vaga::where('id', $id)->delete();
         

@@ -22,9 +22,27 @@ class VagasController extends Controller
 
     public function store(Request $request) {
         
-        Vaga::create($request->all());
+        $user = session()->get('user');
+
+        // Se o usuario não estiver logado pode criar vaga com qualquer email
+        // Se o usuario estiver logado so pode criar uma vaga com seu próprio email
+        if($user != null && $request->email === $user->email) {
+
+            Vaga::create($request->all());
         
-        return to_route('vagas.index');
+            return to_route('vagas.index');
+    
+        } elseif($user != null && $request->email != $user->email) {
+
+            return to_route('vagas.create');
+        
+        } elseif($user === null) {
+
+            Vaga::create($request->all());
+        
+            return to_route('vagas.index');
+    
+        }
     }
 
     public function show($id) {

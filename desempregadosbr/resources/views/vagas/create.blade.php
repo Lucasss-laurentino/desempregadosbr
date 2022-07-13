@@ -8,7 +8,11 @@
             @csrf
             <div class="form-group">
                 <label for="exampleInputEmail1"class ="text-success"><strong>Email</strong></label>
-                <input type="email" class="form-control border border-success text-success" name="email" aria-describedby="emailHelp">
+                @if(session()->get('user') != null)
+                <input type="text" readonly class="form-control-plaintext form-control text-success p-2 bg-white" name="email" id="staticEmail" value= "{{ session()->get('user')['email'] }}">
+                @else
+                <input type="text" class="form-control-plaintext form-control border border-success text-success px-2 bg-white" name="email" id="staticEmail">
+                @endif
             </div>
             <div class="form-group mt-2">
                 <label for="exampleInputTitulo"class ="text-success"><strong>Titulo</strong></label>
