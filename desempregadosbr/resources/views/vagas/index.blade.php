@@ -71,6 +71,12 @@
             @endforeach
         </ul>
         @endif
+        <div class="col-12 mt-2 mb-3 pb-3 pt-2">
+            <div class="d-flex justify-content-center text-success">
+                    {{ $vagas->links() }}
+            </div>
+        </div>
+
         </div>
     </main>
 
