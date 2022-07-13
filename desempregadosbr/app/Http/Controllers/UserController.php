@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Mail;
+
 use Laravel\Socialite\Facades\Socialite;
 
 use App\Models\User;
+
+use App\Models\Vaga;
+
+use App\Mail\Candidato;
 
 class UserController extends Controller
 {
@@ -52,14 +58,20 @@ class UserController extends Controller
         return to_route('vagas.index');
     }
 
-    public function upload(Request $request) {
+    public function show() {
+        return view('vagas.show');
+    }
+    
+    public function upload(Request $request, $id) {
 
-        $user = User::find($request->session()->get('user')['id']);
+        $vaga = Vaga::find($id);
 
         $pathToFile = $request->file('my-file')->store('curriculos');
-        
-        $user->pathToFile = $request->file('my-file');
+
+        Mail::to($vaga->email)->send(new Candidato($vaga->id, $vaga->titulo, $pathToFile));
 
         return to_route('vagas.index');
+
     }
+
 }

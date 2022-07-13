@@ -29,8 +29,6 @@ Route::resource('/vagas', VagasController::class)->only([
 ]);
 
 Route::get('/user', [UserController::class, 'logout'])->name('user.logout');
-Route::post('/user', [UserController::class, 'upload'])->name('user.upload');
-
-
+Route::post('/user/{id}', [UserController::class, 'upload'])->name('user.upload');
 Route::get('/auth/{provider}', [UserController::class, 'redirectToProvider'])->name('social.login');
 Route::get('/auth/{provider}/callback', [UserController::class, 'handleToCallback'])->name('social.callback');
