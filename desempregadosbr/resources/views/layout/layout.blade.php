@@ -60,19 +60,6 @@
                         <button class="btn btn-light btn-sm px-3 py-2 text-success" id="cadastrar" data-toggle="modal" data-target="#exampleModalCenter"><strong>Cadastrar</strong></button>
                     </form>
                     @endif
-
-                    <!---
-                    <li class="nav-item dropdown">
-                        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                    --->
                     </ul>
                 </div>
             </div>

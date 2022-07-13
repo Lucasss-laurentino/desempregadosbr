@@ -6,6 +6,8 @@ use App\Http\Controllers\VagasController;
 
 use App\Http\Controllers\UserController;
 
+use App\Http\Controllers\AdmController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +30,10 @@ Route::resource('/vagas', VagasController::class)->only([
     'show',
 ]);
 
+Route::resource('/adm', AdmController::class)->only([
+    'edit',
+    'update',
+]);
 Route::get('/user', [UserController::class, 'logout'])->name('user.logout');
 Route::post('/user/{id}', [UserController::class, 'upload'])->name('user.upload');
 Route::get('/auth/{provider}', [UserController::class, 'redirectToProvider'])->name('social.login');
