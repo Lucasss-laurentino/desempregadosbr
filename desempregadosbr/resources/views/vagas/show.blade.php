@@ -16,14 +16,23 @@
                 <p class="text-success"><strong>Quantidade de vagas:</strong> {{ $vaga->quantidade }}</p>
                 <p class="text-success"><strong>Descrição da vaga:</strong> {{ $vaga->descricao }}</p>
             </div>
-            <div class="card-footer border-success bg-white">
-                <form action="{{ route('user.upload', $vaga->id) }}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <label for="formFileSm" class="form-label text-success"><strong>Selecione seu curriculo</strong></label>
-                    <input type="file" name="my-file" id="image" class="form-control" accept="application/pdf,application/vnd.ms-excel" />
-                    <button type="submit" class="btn btn-sm bg-success text-white my-3 w-100">Enviar</button>
-                </form>
-            </div>
+            @if(session()->get('user') != null)
+                @isset($candidatura)
+                @if($candidatura->vaga_id === $vaga->id && $candidatura->user_id === session()->get('user')['id'])
+                    <h3 class="text-success text-center my-2">Candidatou-se</h3>
+                @endif
+                @endisset
+                @if($candidatura === null)
+                    <div class="card-footer border-success bg-white">
+                        <form action="{{ route('user.upload', $vaga->id) }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <label for="formFileSm" class="form-label text-success"><strong>Selecione seu curriculo</strong></label>
+                            <input type="file" name="my-file" id="image" class="form-control" accept="application/pdf,application/vnd.ms-excel" />
+                            <button type="submit" class="btn btn-sm bg-success text-white my-3 w-100">Enviar</button>
+                        </form>
+                    </div>
+                @endif
+            @endif
         </div>
     </div>
 </main>

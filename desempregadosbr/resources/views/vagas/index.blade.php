@@ -27,11 +27,12 @@
         <div class="container" style="width: 40%;">
         @if($vagas != null)
         <ul class="list-group">
-            @foreach($vagas as $vaga)
+            @foreach($vagas as $vaga)            
             <li class="list-group my-4">
                 <div class="card border-success">
                     <div class="card-header bg-success d-flex justify-content-center text-center">
                         <p class="text-white mb-0" style="width:50%;"><strong>{{ $vaga->titulo }}</strong></p>
+                        <!--- Verificando se o id do usuario 1 (adm) pra exibir controles --->
                         @if(session()->get('user') != null && session()->get('user')['id'] === 1)
                         <div class="container d-flex justify-content-end">
                             <form action="{{ route('adm.edit', $vaga->id) }}" method="GET">
@@ -54,11 +55,25 @@
                             </form>
                         </div>
                         @endif
+                        <!------>
                     </div>
                     <div class="card-body text-center">
                         <p class="card-text text-success">{{ $vaga->descricao }}</p>
                     </div>
-                    <div class="card-footer d-flex justify-content-center bg-white border-white">
+                    <div class="card-footer d-flex justify-content-around bg-ligth border-white">
+                        <!---
+                            Verificando se o id da vaga e do usuario
+                            é igual ao id do usuario logado e da vaga que
+                            o candidato se candidatou 
+                        --->                    
+                        @if(session()->get('user') != null && $candidaturas != null)    
+                        @foreach($candidaturas as $candidatura)
+                        @if($candidatura->vaga_id === $vaga->id && $candidatura->user_id === session()->get('user')['id'])
+                        <p class="text-success m-0">Candidatou-se</p>
+                        @endif
+                        @endforeach
+                        @endif
+                        <!------>
                         @if(session()->get('user') != null)
                         <a href="{{ route('vagas.show', $vaga->id) }}" class="ver_vaga btn btn-sm btn-success">Ver vaga</a>
                         @endif

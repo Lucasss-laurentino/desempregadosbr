@@ -6,13 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Models\Vaga;
 
+use App\Models\Candidatura;
+
 class VagasController extends Controller
 {
     public function index() {
 
         $vagas = Vaga::query()->orderBy('id', 'desc')->simplePaginate(10);
+        
+        $candidaturas = Candidatura::all();
 
-        return view('vagas.index')->with('vagas', $vagas);
+        return view('vagas.index')->with('vagas', $vagas)->with('candidaturas', $candidaturas);
 
     }
 
@@ -45,9 +49,13 @@ class VagasController extends Controller
         }
     }
 
-    public function show($id) {
+    public function show(Request $request, $id) {
+
         $vaga = Vaga::find($id);
 
-        return view('vagas.show')->with('vaga', $vaga);
+        $candidatura = Candidatura::where('vaga_id', $vaga->id)->first();
+
+        return view('vagas.show')->with('vaga', $vaga)->with('candidatura', $candidatura);
+        
     }
 }

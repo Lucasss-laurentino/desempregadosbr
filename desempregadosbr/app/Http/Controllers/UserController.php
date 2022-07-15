@@ -12,6 +12,8 @@ use App\Models\User;
 
 use App\Models\Vaga;
 
+use App\Models\Candidatura;
+
 use App\Mail\Candidato;
 
 class UserController extends Controller
@@ -69,6 +71,12 @@ class UserController extends Controller
         $pathToFile = $request->file('my-file')->store('curriculos');
 
         Mail::to($vaga->email)->send(new Candidato($vaga->id, $vaga->titulo, $pathToFile));
+
+        $candidatura = Candidatura::create([
+            'vaga_id' => $vaga->id,
+            'user_id' => session()->get('user')['id'],
+        
+        ]);
 
         return to_route('vagas.index');
 

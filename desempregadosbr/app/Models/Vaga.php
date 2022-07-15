@@ -19,4 +19,8 @@ class Vaga extends Model
         'quantidade',
         'descricao',
     ];
+
+    public function candidatura() {
+        return $this->belongsTo(Candidatura::class);
+    }
 }
