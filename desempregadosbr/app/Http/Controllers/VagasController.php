@@ -53,9 +53,24 @@ class VagasController extends Controller
 
         $vaga = Vaga::find($id);
 
-        $candidatura = Candidatura::where('vaga_id', $vaga->id)->first();
+        $candidaturas = Candidatura::where('vaga_id', $vaga->id)->get();
 
-        return view('vagas.show')->with('vaga', $vaga)->with('candidatura', $candidatura);
+        foreach($candidaturas as $candidatura) {
+
+            if($candidatura->user_id === session()->get('user')['id']) {
+                
+                $dados = $candidatura;
+                
+                return view('vagas.show')->with('vaga', $vaga)->with('candidatura', $dados);
+
+            } else {
+
+                $candidatura = null;
+                return view('vagas.show')->with('vaga', $vaga)->with('candidatura', $candidatura);
+
+            }
+    
+        }
         
     }
 }
