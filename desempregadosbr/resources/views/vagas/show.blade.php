@@ -17,11 +17,9 @@
                 <p class="text-success"><strong>Descrição da vaga:</strong> {{ $vaga->descricao }}</p>
             </div>
             @if(session()->get('user') != null)
-                @isset($candidatura)
-                @if($candidatura->vaga_id === $vaga->id && $candidatura->user_id === session()->get('user')['id'])
+                @if($candidatura != null)
                     <h3 class="text-success text-center my-2">Candidatou-se</h3>
                 @endif
-                @endisset
                 @if($candidatura === null)
                     <div class="card-footer border-success bg-white">
                         <form action="{{ route('user.upload', $vaga->id) }}" method="post" enctype="multipart/form-data">
