@@ -17,7 +17,7 @@
             </form>
         </div>
         <div class="container d-flex justify-content-center mt-3 mb-4">
-            <p class="text-success">Explore vagas de trabalhos com simplicidade e sem burocracia !</p>
+            <p class="text-success">Explore ou publique vagas de trabalho com simplicidade e sem burocracia !</p>
         </div>
     </header>
     <!--- --->
