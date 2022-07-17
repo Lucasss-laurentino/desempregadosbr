@@ -75,4 +75,12 @@ class VagasController extends Controller
 
     }
 
+    public function politica_de_privacidade() {
+        return view('politica_de_privacidade.politica_de_privacidade');
+    }
+
+    public function termos_de_uso() {
+        return view('termos_de_uso.termos_de_uso');
+    }
+
 }

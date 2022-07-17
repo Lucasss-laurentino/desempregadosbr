@@ -23,6 +23,7 @@ Route::get('/', function () {
     return to_route('vagas.index');
 });
 
+
 Route::resource('/vagas', VagasController::class)->only([
     'index',
     'create',
@@ -30,11 +31,16 @@ Route::resource('/vagas', VagasController::class)->only([
     'show',
 ]);
 
+Route::get('/politica_de_privacidade', [VagasController::class, 'politica_de_privacidade'])->name('politicaDePrivacidade');
+
+Route::get('/termos_de_uso', [VagasController::class, 'termos_de_uso'])->name('termosDeUso');
+
 Route::resource('/adm', AdmController::class)->only([
     'edit',
     'update',
     'destroy',
 ]);
+
 Route::get('/user', [UserController::class, 'logout'])->name('user.logout');
 Route::post('/user/{id}', [UserController::class, 'upload'])->name('user.upload');
 Route::get('/auth/{provider}', [UserController::class, 'redirectToProvider'])->name('social.login');

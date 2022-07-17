@@ -95,7 +95,7 @@
                                     </a>
                             </div>
                             <div class="container mt-5">
-                                <p class="text-success">Ao continuar você concorda com nossos Termos de uso. Leia nossa Política de privacidade</p>
+                                <p class="text-success">Ao continuar você concorda com nossos <a href="{{ route('termosDeUso') }}" class="text-decoration-underline">Termos de uso</a>. Leia nossa <a href="{{ route('politicaDePrivacidade') }}" class="text-decoration-underline">Política de privacidade</a></p>
                             </div>
                         </div>
                     </div>
@@ -112,10 +112,10 @@
                         &copy; 2022 - Desempregadosbr
                     </div>
                     <div class="col-12 col-md-4 text-center text-md-left">
-                        <a href="/termos_de_uso" class="text-decoration-none">Termos de uso</a>
+                        <a href="{{ route('termosDeUso') }}" class="text-decoration-none text-white">Termos de uso</a>
                     </div>
                     <div class="col-12 col-md-4 text-center text-md-left">
-                        <a href="/termos_de_uso" class="text-decoration-none">Política de privacidade</a>
+                        <a href="{{ route('politicaDePrivacidade') }}" class="text-decoration-none">Política de privacidade</a>
                     </div>
                 </div>
             </div>
