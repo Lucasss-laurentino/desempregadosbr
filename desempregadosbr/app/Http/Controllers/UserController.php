@@ -18,6 +18,7 @@ use App\Mail\Candidato;
 
 class UserController extends Controller
 {
+    /* Socialite */
     public function redirectToProvider($provider) {
 
         return Socialite::driver($provider)->redirect();
@@ -70,8 +71,10 @@ class UserController extends Controller
 
         $pathToFile = $request->file('my-file')->store('curriculos');
 
+        /* Enviando email */
         Mail::to($vaga->email)->send(new Candidato($vaga->id, $vaga->titulo, $pathToFile));
 
+        /* Criando registro de candidatura no banco */
         $candidatura = Candidatura::create([
             'vaga_id' => $vaga->id,
             'user_id' => session()->get('user')['id'],
