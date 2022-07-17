@@ -12,7 +12,7 @@ class VagasController extends Controller
 {
     public function index() {
 
-        $vagas = Vaga::query()->orderBy('id', 'desc')->simplePaginate(10);
+        $vagas = Vaga::query()->orderBy('id', 'desc')->simplePaginate(5);
         
         $candidaturas = Candidatura::all();
 
@@ -54,14 +54,13 @@ class VagasController extends Controller
         $vaga = Vaga::find($id);
 
         $candidaturas = Candidatura::where('vaga_id', $vaga->id)->get();
-
+        
+        /* Verificar se ja se candidatou para esta vaga e retornar na view formulario ou candidatou-se */
         foreach($candidaturas as $candidatura) {
 
             if($candidatura->user_id === session()->get('user')['id']) {
-                
-                $dados = $candidatura;
-                
-                return view('vagas.show')->with('vaga', $vaga)->with('candidatura', $dados);
+                                    
+                return view('vagas.show')->with('vaga', $vaga)->with('candidatura', $candidatura);
 
             } else {
 
@@ -69,8 +68,11 @@ class VagasController extends Controller
                 return view('vagas.show')->with('vaga', $vaga)->with('candidatura', $candidatura);
 
             }
-    
-        }
+        }        
         
+        $candidatura = null;
+        return view('vagas.show')->with('vaga', $vaga)->with('candidatura', $candidatura);    
+
     }
+
 }
